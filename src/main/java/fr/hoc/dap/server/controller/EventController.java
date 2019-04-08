@@ -18,7 +18,7 @@ import fr.hoc.dap.server.service.CalendarService;
 public class EventController {
     /** injection of Dependency with Autowired annotation .*/
     @Autowired
-    private CalendarService gcService = new CalendarService();
+    private CalendarService gcService;
 
     /** Display next event in server client.
      * @param userKey connected.

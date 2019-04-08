@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.google.api.client.auth.oauth2.StoredCredential;
 import com.google.api.client.util.store.DataStore;
 
-import fr.hoc.dap.server.service.GmailService;
+import fr.hoc.dap.server.service.AdminService;
 
 /**
  * @author house
@@ -26,7 +26,7 @@ public class AdminController {
      * Injection of dependency with Autowired annotation.
      */
     @Autowired
-    private GmailService gservice;
+    private AdminService accService;
 
     /**
      * @param model Map Object loaded with results
@@ -36,16 +36,14 @@ public class AdminController {
      */
     @RequestMapping("/admin")
     public String admin(final ModelMap model) throws GeneralSecurityException, IOException {
-        DataStore<StoredCredential> data = gservice.getCredentialMap();
+        DataStore<StoredCredential> data = accService.getCredentialMap();
 
         Map<String, StoredCredential> userMap = new HashMap<>();
         Set<String> keys = data.keySet();
 
         for (String key : keys) {
             StoredCredential value = data.get(key);
-            System.err.println(value);
             userMap.put(key, value);
-            System.err.println(userMap);
         }
         model.addAttribute("users", userMap);
 
