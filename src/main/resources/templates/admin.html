@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Admin Page</title>
+<link rel="stylesheet" href="../static/css/bootstrapmin.css"
+	th:href="@{css/bootstrapmin.css}">
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Liste des users</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Token</th>
+							<th>Expire</th>
+							<th>Refresh</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="entry: ${users}">
+							<td th:text="${entry.key}"></td>
+							<td th:text="${entry.value.accessToken}"></td>
+							<td th:text="${entry.value.expirationTimeMilliseconds}"></td>
+							<td th:text="${entry.value.refreshToken}"></td>
+						</tr>
+					</tbody>
+				</table>
+				<input class="Bouton"
+       type="button"
+       value="Delete user">
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
+
