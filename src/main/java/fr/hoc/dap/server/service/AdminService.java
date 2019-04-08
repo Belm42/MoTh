@@ -9,7 +9,7 @@ import com.google.api.client.auth.oauth2.StoredCredential;
 import com.google.api.client.util.store.DataStore;
 
 /**
- * @author house
+ * @author momo et toto
  *
  */
 @Service
