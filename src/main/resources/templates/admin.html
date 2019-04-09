@@ -11,7 +11,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="panel panel-primary">
-				<div class="panel-heading">Liste des users</div>
+				<div class="panel-heading">Liste des utilisateurs:</div>
 			</div>
 		</div>
 		<div class="row">
@@ -19,10 +19,10 @@
 				<table class="table">
 					<thead>
 						<tr>
-							<th>ID</th>
+							<th>User ID</th>
 							<th>Token</th>
-							<th>Expire</th>
-							<th>Refresh</th>
+							<th>Expire date</th>
+							<th>Delete User</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -30,13 +30,13 @@
 							<td th:text="${entry.key}"></td>
 							<td th:text="${entry.value.accessToken}"></td>
 							<td th:text="${entry.value.expirationTimeMilliseconds}"></td>
-							<td th:text="${entry.value.refreshToken}"></td>
+							<td>
+								<a th:href="@{/delete/user(userkey=${entry.key})}">Delete</a>
+								</td>
 						</tr>
 					</tbody>
 				</table>
-				<input class="Bouton"
-       type="button"
-       value="Delete user">
+				
 			</div>
 		</div>
 	</div>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.hoc.dap.server.service.GmailService;
 
 /**
+ * Controller for the gestion of mails.
  * @author Mohammed & Thomas
  *
  */

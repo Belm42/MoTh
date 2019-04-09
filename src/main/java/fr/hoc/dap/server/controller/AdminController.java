@@ -17,7 +17,8 @@ import com.google.api.client.util.store.DataStore;
 import fr.hoc.dap.server.service.AdminService;
 
 /**
- * @author house
+ * Controller who handles the administration panel.
+ * @author Mohammed & Thomas
  *
  */
 @Controller
@@ -36,13 +37,13 @@ public class AdminController {
      */
     @RequestMapping("/admin")
     public String admin(final ModelMap model) throws GeneralSecurityException, IOException {
-        DataStore<StoredCredential> data = accService.getCredentialMap();
+        DataStore<StoredCredential> usersInfo = accService.getCredentialMap();
 
         Map<String, StoredCredential> userMap = new HashMap<>();
-        Set<String> keys = data.keySet();
+        Set<String> keys = usersInfo.keySet();
 
         for (String key : keys) {
-            StoredCredential value = data.get(key);
+            StoredCredential value = usersInfo.get(key);
             userMap.put(key, value);
         }
         model.addAttribute("users", userMap);
@@ -51,4 +52,16 @@ public class AdminController {
 
     }
 
+    /**
+     * @param userKey the username you want to delete.
+     * @return redirect to the admin homepage
+     * @throws GeneralSecurityException Security Exception
+     * @throws IOException IOException
+     */
+    @RequestMapping("/delete/user")
+    public String deleteuser(final String userKey) throws GeneralSecurityException, IOException {
+        DataStore<StoredCredential> deleteUser = accService.getCredentialMap().delete(userKey);
+        return "redirect:/admin";
+
+    }
 }

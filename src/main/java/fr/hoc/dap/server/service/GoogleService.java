@@ -29,7 +29,7 @@ import com.google.api.services.gmail.GmailScopes;
 import fr.hoc.dap.server.Config;
 
 /**
- * Classe parente de tous le serviceGoogle. Permet de gèrer les droits.
+ * Mother class for all Google's API services.
  * @author Mohammed & Thomas
  */
 
@@ -45,7 +45,7 @@ public class GoogleService {
     /** Log4j logging system. */
     public static final Logger LOG = LogManager.getLogger();
     /**
-     * Jason factory Implementation.
+     * Json factory Implementation.
      */
     protected static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     /**Create list of scopes for google's services. */

@@ -17,11 +17,10 @@ import com.google.api.services.calendar.model.Events;
 import fr.hoc.dap.server.Config;
 
 /**
- *
- * @author Mohammed & Thomas
+ * Service for Google Calendar access.
+ * @author Mohammed et Thomas
  *
  */
-
 @Service
 public class CalendarService extends GoogleService {
 

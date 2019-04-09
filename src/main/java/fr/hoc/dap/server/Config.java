@@ -1,6 +1,7 @@
 package fr.hoc.dap.server;
 
 /**
+ * Configurations of the app.
  * @author Mohammed et Thomas
  *
  */

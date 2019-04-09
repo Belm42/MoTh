@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.hoc.dap.server.service.CalendarService;
 
-/** Manage calendar service.
+/**
+ * Manage calendar service.
  * @author Mohammed & Thomas
  *
  */

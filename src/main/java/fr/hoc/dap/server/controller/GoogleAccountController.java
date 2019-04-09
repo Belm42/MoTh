@@ -27,7 +27,7 @@ import fr.hoc.dap.server.Config;
 import fr.hoc.dap.server.service.GoogleService;
 
 /**
- *
+ * Controller who handles Google accounts connexions.
  * @author Mohammed & Thomas
  *
  */

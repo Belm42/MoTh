@@ -9,7 +9,8 @@ import com.google.api.client.auth.oauth2.StoredCredential;
 import com.google.api.client.util.store.DataStore;
 
 /**
- * @author momo et toto
+ * Service for the administration of the app.
+ * @author Mohammed et Thomas.
  *
  */
 @Service
@@ -17,8 +18,8 @@ public class AdminService extends GoogleService {
 
     @Override
     public final DataStore<StoredCredential> getCredentialMap() throws GeneralSecurityException, IOException {
-        DataStore<StoredCredential> x = getFlow().getCredentialDataStore();
-        return x;
+        DataStore<StoredCredential> userList = getFlow().getCredentialDataStore();
+        return userList;
     }
 
 }

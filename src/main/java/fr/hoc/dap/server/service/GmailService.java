@@ -18,8 +18,11 @@ import com.google.api.services.gmail.model.Message;
 
 import fr.hoc.dap.server.Config;
 
-/** la class GmailService regroupe les méthode pour acceder au nombre de mails. */
-
+/**
+ * Service for the gmail access.
+ * @author Mohammed et Thomas
+ *
+ */
 @Service
 public class GmailService extends GoogleService {
 
