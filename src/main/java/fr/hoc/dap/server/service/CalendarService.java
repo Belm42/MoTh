@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,9 @@ import fr.hoc.dap.server.Config;
 @Service
 public class CalendarService extends GoogleService {
 
+    /** Logger Log4j declaration. */
+    private static final Logger LOG = LogManager.getLogger();
+
     /**
      *  injection of Dependency with Autowired annotation .
      */
@@ -42,10 +47,12 @@ public class CalendarService extends GoogleService {
         final NetHttpTransport httptransport = GoogleNetHttpTransport.newTrustedTransport();
         Calendar service = new Calendar.Builder(httptransport, JSON_FACTORY, getCredentials(userKey))
                 .setApplicationName(maConf.getApplicationName()).build();
+
+        LOG.info("Service obtained");
         return service;
     }
 
-    /** Display ths next events.
+    /** Display the next events.
      * @return next events.
      * @throws GeneralSecurityException can not connect the sever.
      * @throws IOException if the credentials.json file can not be found.
@@ -63,6 +70,7 @@ public class CalendarService extends GoogleService {
                 .setSingleEvents(true).execute();
         List<Event> items = events.getItems();
         if (items.isEmpty()) {
+            LOG.info("No event found");
             results = "No upcoming events";
 
         } else {

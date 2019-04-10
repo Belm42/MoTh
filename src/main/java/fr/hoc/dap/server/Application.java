@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 /**
- * Main class of the application.
+ * Main class executed at the launch of the app.
  * @author Mohammed et Thomas
  *
  */
@@ -34,13 +34,13 @@ public class Application {
     @Bean
     public Config config() {
         Config config = new Config();
-        LOG.info("New config created");
+        LOG.info("Configuration initialized");
         return config;
 
     }
 
     /**
-     * @return The arguments for the command line runner.
+     * @return The arguments for the command line runner in order to run tests.
      */
     @Bean
     public CommandLineRunner commandLineRunner() {

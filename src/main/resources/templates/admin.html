@@ -29,9 +29,9 @@
 						<tr th:each="entry: ${users}">
 							<td th:text="${entry.key}"></td>
 							<td th:text="${entry.value.accessToken}"></td>
-							<td th:text="${entry.value.expirationTimeMilliseconds}"></td>
+							<td th:text="${entry.value.expirationTimeMilliseconds/86400000}"></td>
 							<td>
-								<a th:href="@{/delete/user(userkey=${entry.key})}">Delete</a>
+								<a class= "btn btn-danger" onclick= "return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')" th:href="@{/delete/user(userKey=${entry.key})}">Delete</a>
 								</td>
 						</tr>
 					</tbody>

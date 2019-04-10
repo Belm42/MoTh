@@ -3,6 +3,8 @@ package fr.hoc.dap.server.controller;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,10 @@ import fr.hoc.dap.server.service.GmailService;
 
 @RestController
 public class MailController {
+
+    /** Logger Log4j declaration. */
+    private static final Logger LOG = LogManager.getLogger();
+
     /** injection of Dependency with Autowired annotation . */
     @Autowired
     private GmailService gmService = new GmailService();
@@ -30,6 +36,8 @@ public class MailController {
      */
     @RequestMapping("/mail/nbunread")
     public Integer nombre(@RequestParam("userKey") final String userKey) throws IOException, GeneralSecurityException {
+
+        LOG.info("Number of unread mails obtained");
 
         return gmService.displayNumbeOfEmailUnread(userKey);
     }

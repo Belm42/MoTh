@@ -25,7 +25,7 @@ public class Config {
     /**Declaration auth2CallBackUrl.*/
     private String auth2CallBackUrl;
 
-    /** constructor for the custom Configuration.*/
+    /** constructor for the Configuration.*/
     public Config() {
         applicationName = APPLICATION_NAME;
         tokensDirectoryPath = TOKENS_DIRECTORY_PATH;
@@ -35,7 +35,7 @@ public class Config {
     }
 
     /**
-     * @return a credentialFolder
+     * @return the credentialFolder.
      */
     public String getCredentialFolder() {
         return tokensDirectoryPath;
@@ -49,7 +49,7 @@ public class Config {
     }
 
     /**
-     * @return clientSecretFile
+     * @return clientSecretFile.
      */
     public String getClientSecretFile() {
         return credentialFilePath;
@@ -63,13 +63,6 @@ public class Config {
     }
 
     /**
-     * @return credentialFilePath
-     */
-    public String getCredentialFilePath() {
-        return credentialFilePath;
-    }
-
-    /**
      * @return The credential Folder.
      */
     public String getTokensDirectoryPath() {
@@ -77,7 +70,7 @@ public class Config {
     }
 
     /**
-     * @param appName the applicationName to set
+     * @param appName the applicationName to set.
      */
     public void setApplicationName(final String appName) {
         this.applicationName = appName;

@@ -42,9 +42,9 @@ public class GoogleAccountController extends GoogleService {
 
     /** Logger. */
     private static final Logger LOG = LogManager.getLogger();
-    /** start for senssible data to LOG. */
+    /** start for sensible data to LOG. */
     private static final int SENSIBLE_DATA_FIRST_CHAR = 1;
-    /** last char for senssible data to LOG. */
+    /** last char for sensible data to LOG. */
     private static final int SENSIBLE_DATA_LAST_CHAR = 7;
 
     /**
@@ -54,7 +54,7 @@ public class GoogleAccountController extends GoogleService {
      * @param session the HTTP Session
      * @return the view to display
      * @throws ServletException When Google account could not be connected to DAP.
-     * @throws GeneralSecurityException a google probleme
+     * @throws GeneralSecurityException a google problem
      */
     @RequestMapping("/oAuth2Callback")
     public String oAuthCallback(@RequestParam final String code, final HttpServletRequest request,
@@ -129,7 +129,6 @@ public class GoogleAccountController extends GoogleService {
         if (null != responseUrl.getError()) {
             LOG.error("Error when trying to add Google account : " + responseUrl.getError());
             throw new ServletException("Error when trying to add Google acocunt");
-            // onError(request, resp, responseUrl);
         }
 
         return decodeCode;

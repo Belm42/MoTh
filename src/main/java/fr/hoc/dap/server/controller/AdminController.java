@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,6 +25,10 @@ import fr.hoc.dap.server.service.AdminService;
  */
 @Controller
 public class AdminController {
+
+    /** Logger Log4j declaration. */
+    private static final Logger LOG = LogManager.getLogger();
+
     /**
      * Injection of dependency with Autowired annotation.
      */
@@ -48,6 +54,8 @@ public class AdminController {
         }
         model.addAttribute("users", userMap);
 
+        LOG.info("List of users generated");
+
         return "admin";
 
     }
@@ -61,6 +69,8 @@ public class AdminController {
     @RequestMapping("/delete/user")
     public String deleteuser(final String userKey) throws GeneralSecurityException, IOException {
         DataStore<StoredCredential> deleteUser = accService.getCredentialMap().delete(userKey);
+
+        LOG.info("User is deleted");
         return "redirect:/admin";
 
     }
