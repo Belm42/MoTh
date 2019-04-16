@@ -29,6 +29,7 @@ public class AdminController {
     /** Logger Log4j declaration. */
     private static final Logger LOG = LogManager.getLogger();
 
+  //TODO moth by Djer |JavaDoc| Tu ne dois pas docummenter l'annotation (déja fait par Spring DANS l'annotation) mais l'attribut
     /**
      * Injection of dependency with Autowired annotation.
      */
@@ -36,6 +37,7 @@ public class AdminController {
     private AdminService accService;
 
     /**
+     *  //TODO moth by Djer |JavaDoc| Il manque la "description" (première ligne)
      * @param model Map Object loaded with results
      * @return Admin View
      * @throws GeneralSecurityException Security Exception
@@ -54,6 +56,7 @@ public class AdminController {
         }
         model.addAttribute("users", userMap);
 
+        //TODO moth by Djer |Log4J| Contextualise tes messages : userMap.size() + " users generated"
         LOG.info("List of users generated");
 
         return "admin";
@@ -61,6 +64,7 @@ public class AdminController {
     }
 
     /**
+     * //TODO moth by Djer |JavaDoc| Il manque la "description" (première ligne)
      * @param userKey the username you want to delete.
      * @return redirect to the admin homepage
      * @throws GeneralSecurityException Security Exception
@@ -68,6 +72,7 @@ public class AdminController {
      */
     @RequestMapping("/delete/user")
     public String deleteuser(final String userKey) throws GeneralSecurityException, IOException {
+      //TODO moth by Djer |POO| Tu n'es pas obligé de récupére stocker la valeur de retour dans une variable si tu n'en a pas besoin.
         DataStore<StoredCredential> deleteUser = accService.getCredentialMap().delete(userKey);
 
         LOG.info("User is deleted");

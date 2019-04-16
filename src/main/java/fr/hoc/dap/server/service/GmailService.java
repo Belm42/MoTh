@@ -26,6 +26,7 @@ import fr.hoc.dap.server.Config;
 @Service
 public class GmailService extends GoogleService {
 
+    //TODO moth by Djer |POO| Plus utile, cette attribut est disponible via le parent "GoogleService"
     /**
      *  injection of Dependency with Autowired annotation .
      */
@@ -41,6 +42,7 @@ public class GmailService extends GoogleService {
      * @throws GeneralSecurityException can not connect to the sever.
      * @throws IOException if the credentials.json file can not be found.
      */
+  //TODO moth by Djer |POO| BuildService serait mieux comme nom de méthode
     public Gmail getService(final String userKey) throws IOException, GeneralSecurityException {
         final NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
         Gmail service = new Gmail.Builder(httpTransport, JSON_FACTORY, getCredentials(userKey))

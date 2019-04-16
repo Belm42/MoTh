@@ -29,9 +29,12 @@
 						<tr th:each="entry: ${users}">
 							<td th:text="${entry.key}"></td>
 							<td th:text="${entry.value.accessToken}"></td>
-							<td th:text="${entry.value.expirationTimeMilliseconds/86400000}"></td>
+							<!-- TODO moth by Djer |Thymeleaf| Ceci provoque une erreur si "expire" est NULL ! -->
+							<!-- <td th:text="${entry.value.expirationTimeMilliseconds/86400000}"></td> -->
+							<!-- Voici une propisition (de la doc : https://www.baeldung.com/spring-thymeleaf-conditionals) -->
+							<td th:text="${entry.value.expirationTimeMilliseconds != null} ? ${entry.value.expirationTimeMilliseconds/86400000} : 'Inconnu'"></td>
 							<td>
-								<a class= "btn btn-danger" onclick= "return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')" th:href="@{/delete/user(userKey=${entry.key})}">Delete</a>
+								<a class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')" th:href="@{/delete/user(userKey=${entry.key})}">Delete</a>
 								</td>
 						</tr>
 					</tbody>

@@ -5,12 +5,14 @@
 	<groupId>fr.hoc.dap</groupId>
 	<artifactId>serveur</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<name>dap_moth</name>
 
 	<properties>
 		<pmdVersion>6.4.0</pmdVersion>
+		<!-- TODO moth by Djer |Maven| la propriété "java.version" est un racourci (Spring Boot) pour les deux suivante, elles sont redondates -->
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
-
+	
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -43,6 +45,7 @@
 			<version>1.23.0</version>
 		</dependency>
 
+		<!-- TODO moth by Djer |Maven| Cette dependances n'est plus utile depuis qu'on gère nous même le "/oAuth2Callback" (passage en version "Web") -->
 		<dependency>
 			<groupId>com.google.oauth-client</groupId>
 			<artifactId>google-oauth-client-jetty</artifactId>
@@ -61,7 +64,6 @@
 			<version>v3-rev370-1.23.0</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
@@ -75,10 +77,7 @@
 
 	</dependencies>
 
-
-
 	<build>
-
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -125,9 +124,6 @@
 	</build>
 
 
-
-
-
 	<reporting>
 
 		<plugins>
@@ -158,8 +154,5 @@
 			</plugin>
 		</plugins>
 	</reporting>
-
-
-
 
 </project>
