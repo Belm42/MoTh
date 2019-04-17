@@ -34,9 +34,9 @@ import fr.hoc.dap.server.service.GoogleService;
 @Controller
 public class GoogleAccountController extends GoogleService {
 
+    //TODO moth by Djer |JavaDoc| Tu ne dois pas docummenter l'annotation mais l'attribut en dessous
     /**
     /** injection of Dependency with Autowired annotation .*/
-
     @Autowired
     private Config maConf;
 
@@ -87,6 +87,12 @@ public class GoogleAccountController extends GoogleService {
         }
 
         return "redirect:/";
+    }
+    
+    @Override
+    public Credential getCredentials(String userid) throws IOException, GeneralSecurityException {
+        // TODO Auto-generated method stub
+        return super.getCredentials(userid);
     }
 
     /**

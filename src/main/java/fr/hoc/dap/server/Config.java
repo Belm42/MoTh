@@ -7,9 +7,9 @@ package fr.hoc.dap.server;
  */
 public class Config {
 
-    /** File path of the credential folder (Path to the json file).*/
+    /** File path of the credential file (Path to the json file).*/
     private static final String CREDENTIAL_FILE_PATH = System.getProperty("user.home") + "/dap/credential_web.json";
-    /** Directory path of the tokens file.*/
+    /** Directory path of the tokens directory.*/
     private static final String TOKENS_DIRECTORY_PATH = System.getProperty("user.home") + "/dap/tokens";
     /** The application's name.*/
     private static final String APPLICATION_NAME = "HoC DaP";
@@ -89,7 +89,6 @@ public class Config {
      */
     public String getoAuth2CallbackUrl() {
         return auth2CallBackUrl;
-
     }
 
 }

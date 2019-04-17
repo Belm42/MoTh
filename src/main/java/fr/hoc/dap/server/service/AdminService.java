@@ -13,7 +13,6 @@ import com.google.api.client.util.store.DataStore;
 /**
  * Service for the administration of the app.
  * @author Mohammed et Thomas.
- *
  */
 @Service
 public class AdminService extends GoogleService {
@@ -25,6 +24,7 @@ public class AdminService extends GoogleService {
     public final DataStore<StoredCredential> getCredentialMap() throws GeneralSecurityException, IOException {
         DataStore<StoredCredential> userList = getFlow().getCredentialDataStore();
 
+        //TODO moth by Djer |Log4J| Contextualise tes messages : "List of " + userList.size() + " user(s) obtained"
         LOG.info("List of users obtained");
 
         return userList;

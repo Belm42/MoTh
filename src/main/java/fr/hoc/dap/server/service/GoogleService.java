@@ -36,6 +36,7 @@ import fr.hoc.dap.server.Config;
 @Service
 public class GoogleService {
 
+    //TODO moth by Djer |JavaDoc| Tu ne dois pas docummenter l'annotation mais l'attribut en dessous
     /**
      * injection of Dependency with Autowired annotation .
      */
@@ -52,12 +53,13 @@ public class GoogleService {
     private static List<String> scopes;
 
     /** Create google Flow.
-     * @return a configured Google flow .
+     * @return a configured Google flow.
      * @throws GeneralSecurityException can not connect to the sever.
      * @throws IOException if the credentials.json file cannot be found.
      */
     public GoogleAuthorizationCodeFlow getFlow() throws GeneralSecurityException, IOException {
         final NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
+        //TODO moth by Djer |POO| Il serait plus élégant d'alimenter les "scopes" dans le constructeur de la classe (à chaque "getFlow" la liste est (re)créée est ca n'est pas très utile)
         scopes = new ArrayList<String>();
         scopes.add(CalendarScopes.CALENDAR_READONLY);
         scopes.add(GmailScopes.GMAIL_READONLY);
@@ -75,25 +77,30 @@ public class GoogleService {
     }
 
     /**
+     * //TODO moth by Djer |JavaDoc| Il manque la "description" (première ligne)
      * @param userid unique identification for each users
      * @return return the credentials of the user with the userid
      * @throws IOException              IO Error
      * @throws GeneralSecurityException Security exception
      */
+    //TODO moth by Djer |POO| Tu devrais renomer le paramètre "userid" en "userKey"
     public Credential getCredentials(final String userid) throws IOException, GeneralSecurityException {
 
         GoogleAuthorizationCodeFlow flow = getFlow();
+        //TODO moth by Djer |Log4J| Contextualise tes messages : "Authorization Flow obtenue for user " + userid
         LOG.info("Authorization Flow obtenue");
 
         return flow.loadCredential(userid);
     }
 
     /**
+     * //TODO moth by Djer |JavaDoc| Il manque la "description" (première ligne)
      * @return User's credentials info stored in DataStore
      * @throws GeneralSecurityException SecurityException
      * @throws IOException IOException
      */
     public DataStore<StoredCredential> getCredentialMap() throws GeneralSecurityException, IOException {
+      //TODO moth by Djer |Log4J| Une petite log ,
         GoogleAuthorizationCodeFlow flow = getFlow();
 
         DataStore<StoredCredential> datas = flow.getCredentialDataStore();

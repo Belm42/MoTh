@@ -43,6 +43,7 @@ public class Application {
      * @return The arguments for the command line runner in order to run tests.
      */
     @Bean
+    //TODO moth by Djer |Spring| Cette méthode n'est pas obligatoire, tu peux la supprimer si tu n'a pas besoin d'éxécuter de code une fois que Spring c'est initialisé
     public CommandLineRunner commandLineRunner() {
         return args -> {
 
