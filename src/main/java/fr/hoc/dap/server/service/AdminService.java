@@ -24,8 +24,7 @@ public class AdminService extends GoogleService {
     public final DataStore<StoredCredential> getCredentialMap() throws GeneralSecurityException, IOException {
         DataStore<StoredCredential> userList = getFlow().getCredentialDataStore();
 
-        //TODO moth by Djer |Log4J| Contextualise tes messages : "List of " + userList.size() + " user(s) obtained"
-        LOG.info("List of users obtained");
+        LOG.info("List of " + userList.size() + " user(s) obtained");
 
         return userList;
     }

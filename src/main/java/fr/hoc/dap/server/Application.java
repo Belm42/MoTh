@@ -2,7 +2,6 @@ package fr.hoc.dap.server;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -42,11 +41,5 @@ public class Application {
     /**
      * @return The arguments for the command line runner in order to run tests.
      */
-    @Bean
-    //TODO moth by Djer |Spring| Cette méthode n'est pas obligatoire, tu peux la supprimer si tu n'a pas besoin d'éxécuter de code une fois que Spring c'est initialisé
-    public CommandLineRunner commandLineRunner() {
-        return args -> {
 
-        };
-    }
 }

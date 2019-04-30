@@ -42,31 +42,28 @@ public class CalendarService extends GoogleService {
      * @throws GeneralSecurityException can not connect to google sever.
      * @throws IOException where the credentials.json file cannot be found.
      */
-    //TODO moth by Djer |POO| BuildService serait mieux comme nom de méthode
-    public Calendar getService(final String userKey) throws GeneralSecurityException, IOException {
+
+    public Calendar buildService(final String userKey) throws GeneralSecurityException, IOException {
         // Build a new authorized API client service.
         final NetHttpTransport httptransport = GoogleNetHttpTransport.newTrustedTransport();
         Calendar service = new Calendar.Builder(httptransport, JSON_FACTORY, getCredentials(userKey))
                 .setApplicationName(maConf.getApplicationName()).build();
 
-        //TODO moth by Djer |Log4J| Contextualise tes messages : "Calendar Service obtained for user " userkey
-        //TODO moth by Djer |Log4J| Un niveau debug serait sufisant ? Est-ce que le commanditaire (metier) de l'application comprendrait se message ?
-        LOG.info("Service obtained");
+        LOG.debug("Calendar Service obtained for user");
         return service;
     }
 
     /** Display the next events.
-     * @return next events. //TODO moth by Djer |JavaDoc| "Textual repesentation of next event(s)" serait mieux
+     * @return Textual representation of next event(s).
      * @throws GeneralSecurityException can not connect the sever.
      * @throws IOException if the credentials.json file can not be found.
-     * @param userKey connected. //TODO moth by Djer |JavaDoc| "DaP user (login)" serait mieux
-     * @param nb  of events wanted by user. //TODO moth by Djer |JavaDoc| "nb of events to display" serait mieux
+     * @param userKey DaP user (login)
+     * @param nb of events to display.
      */
     public String nextEvents(final Integer nb, final String userKey) throws IOException, GeneralSecurityException {
-        Calendar service = getService(userKey);
+        Calendar service = buildService(userKey);
         String results = "";
-        //TODO moth by Djer |POO| Se commentaire est devenu FAUX !
-        // List the next 10 events from the primary calendar.
+
         DateTime now = new DateTime(System.currentTimeMillis());
 
         Events events = service.events().list("primary").setMaxResults(nb).setTimeMin(now).setOrderBy("startTime")

@@ -23,14 +23,14 @@ public class EventController {
     /** Logger Log4j declaration. */
     private static final Logger LOG = LogManager.getLogger();
 
-    /** injection of Dependency with Autowired annotation .*/
+    /** Injection d'une dependence de la classe CalendarService dans le EventController. */
     @Autowired
     private CalendarService gcService;
 
     /** Display next event in server client.
      * @param userKey connected.
-     * @param nb of events. //TODO moth by Djer |JavaDoc| "nb event to display" serait mieux
-     * @return list of the next events. //TODO moth by Djer |JavaDoc| Ca n'est pas une liste, mais une "represnetation textuelle des prochains évènnements"
+     * @param nb event to display
+     * @return textual representation of next event(s).
      * @throws IOException if the credentials.json file can not be found.
      * @throws GeneralSecurityException can not connect to google sever.
      */
@@ -38,8 +38,7 @@ public class EventController {
     public String getService(@RequestParam(value = "nb", defaultValue = "1") final Integer nb,
             @RequestParam("userKey") final String userKey) throws GeneralSecurityException, IOException {
 
-      //TODO moth by Djer |Log4J| Contextualise tes messages : "Searching for next the " + nb + " nexts event for user + " userKey
-        LOG.info("Next event obtained");
+        LOG.info("Searching for next the \" + nb + \" nexts event for user + \" userKey");
 
         return gcService.nextEvents(nb, userKey);
 

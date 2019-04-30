@@ -9,10 +9,11 @@
 
 	<properties>
 		<pmdVersion>6.4.0</pmdVersion>
-		<!-- TODO moth by Djer |Maven| la propriété "java.version" est un racourci (Spring Boot) pour les deux suivante, elles sont redondates -->
+		<!-- TODO moth by Djer |Maven| la propriété "java.version" est un racourci 
+			(Spring Boot) pour les deux suivante, elles sont redondates -->
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
-	
+
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -27,17 +28,25 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		
+
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
-        </dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>com.google.api-client</groupId>
@@ -45,7 +54,8 @@
 			<version>1.23.0</version>
 		</dependency>
 
-		<!-- TODO moth by Djer |Maven| Cette dependances n'est plus utile depuis qu'on gère nous même le "/oAuth2Callback" (passage en version "Web") -->
+		<!-- TODO moth by Djer |Maven| Cette dependances n'est plus utile depuis 
+			qu'on gère nous même le "/oAuth2Callback" (passage en version "Web") -->
 		<dependency>
 			<groupId>com.google.oauth-client</groupId>
 			<artifactId>google-oauth-client-jetty</artifactId>
